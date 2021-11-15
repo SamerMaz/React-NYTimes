@@ -1,4 +1,4 @@
-# Simple Application that presents news feed
+# Simple Application that presents the news feed
 <img src="Capture.PNG" width="500">
 
 ## Installing the project
