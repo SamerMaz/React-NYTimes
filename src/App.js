@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Articles from "./components/Articles/Articles";
 import Search from "./components/Search";
+import { getArticles, searchArticles } from "./services/service";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -10,45 +11,66 @@ const App = () => {
 
   //console.log(articles)
 
-  const handleScroll = (event) => {
-    const { scrollTop, clientHeight, scrollHeight } = event.window.EventTarget; //.currentTarget;
-    console.log(scrollHeight);
-    if (scrollHeight - scrollTop === clientHeight) {
-      setPage((prev) => prev + 1);
-    }
-  };
+  // const handleScroll = (event) => {
+  //   const { scrollTop, clientHeight, scrollHeight } = event.window.EventTarget; //.currentTarget;
+  //   console.log(scrollHeight);
+  //   if (scrollHeight - scrollTop === clientHeight) {
+  //     setPage((prev) => prev + 1);
+  //     getArticles(page)
+  //   }
+  // };
 
-  useEffect(() => {
-    const getArticles = async () => {
-      setLoading(true);
-      const res = await axios.get(
-        `https://api.nytimes.com/svc/search/v2/articlesearch.json?page=${page}&sort=newest&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`
-      );
-      const articles = res.data.response.docs;
-      setArticles(articles);
-      setLoading(false);
-    };
-    getArticles();
-  }, [page]);
 
-  const searchArticles = async (text) => {
+
+
+  
+  // useEffect(() => {
+  //   setLoading(true)
+  //   getArticles(page).then((articles)=>{
+  //     if(page >1){
+  //       let arr = [articles,  ...articles];
+  //       console.log(articles)
+  //       setTimeout(()=>{
+          
+  //         setArticles(arr)
+  //         setLoading(false)
+  //       }, 5000)
+  //     } else {
+  //       setArticles(articles);
+  //     }
+      
+  //     setLoading(false);
+  // }).catch((error)=>{ console.log(error)})
+      
+    
+  //   // getArticles();
+    
+  // }, [page]);
+
+  const searchArticle = async (text) => {
     setLoading(true);
-    const res = await axios.get(
-      `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${text}&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`
-    );
-    setArticles(res.data.response.docs);
+    searchArticles(text).then((articles)=>{
+      setArticles(articles)
+    })
+    
     setLoading(false);
   };
 
-  console.log(page);
+  // console.log(page);
 
   return (
-    <div onScroll={handleScroll}>
-      <Search searchArticles={searchArticles} />
-
-      <Articles loading={loading} articles={articles} />
-    </div>
+<>
+   
+      <Search searchArticles={searchArticle} />
+    
+      <div style={{marginTop:"6rem"}}>
+        <Articles />
+      </div>
+  </>
   );
 };
+
+
+
 
 export default App;
