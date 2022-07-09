@@ -17,16 +17,17 @@ const Articles = () => {
 
   // const {isLoading, data }= useQuery('articles', ()=>getArticles(pageNum))
   const { isLoading, data, hasNextPage, fetchNextPage } = useInfiniteQuery('articles', 
-      ({pageParam=1})=> getArticles(pageParam), {
+      ({pageParam=0})=> getArticles(pageParam), {
         getNextPageParam: (lastPage, allPages)=> {
           const maxPages = lastPage.length * totalPages / 10;
-          console.log("LastPage",maxPages)
+          
           const nextPage = allPages.length+1;
+      console.log("LastPage",allPages, nextPage)
+
           return nextPage <= maxPages ? nextPage : undefined
         }
       })
       // console.log(data)
-
 
       useEffect(()=>{
         let fetching= false;
@@ -45,7 +46,7 @@ const Articles = () => {
           document.removeEventListener('scroll', onScroll)
         }
 
-      }, [])
+      }, [fetchNextPage, data, hasNextPage])
 
   return(
     <>
@@ -63,6 +64,7 @@ const Articles = () => {
               </Grid>
             ))))}
           </Grid>
+          <div>Loading...</div>
         </div>
       )}
     

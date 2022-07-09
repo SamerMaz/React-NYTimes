@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Articles from "./components/Articles/Articles";
 import Search from "./components/Search";
 import { getArticles, searchArticles } from "./services/service";
@@ -8,6 +9,9 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [articles, setArticles] = useState([]);
   const [page, setPage] = useState(0); // 0 will show from 1-10
+
+ // Create a client
+ const queryClient = new QueryClient()
 
   //console.log(articles)
 
@@ -59,14 +63,15 @@ const App = () => {
   // console.log(page);
 
   return (
-<>
-   
-      <Search searchArticles={searchArticle} />
+<QueryClientProvider client={queryClient}>
+
+<Search searchArticles={searchArticle} />
     
-      <div style={{marginTop:"6rem"}}>
-        <Articles />
-      </div>
-  </>
+    <div style={{marginTop:"6rem"}}>
+      <Articles />
+    </div>
+</QueryClientProvider>
+   
   );
 };
 
