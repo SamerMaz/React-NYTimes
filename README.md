@@ -1,5 +1,8 @@
-# Simple Application that presents the news feed
+# Simple Application that presents the news feed(Project not done yet)
 <img src="Capture.PNG" width="500">
+
+### <a href="https://nyorktimes.netlify.app/" target="_blank">Live Site</a>
+
 
 ## Installing the project
 - Open your terminal and then type. `$ git clone {the url to the GitHub repo}`  
