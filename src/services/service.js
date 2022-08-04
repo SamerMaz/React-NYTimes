@@ -20,3 +20,33 @@ export const searchArticles = async (text) =>{
   const articles = res.data.response.docs;
     return articles
 }
+// nyt://article/3ec8467c-afbb-58b1-ac3f-8a3fbd83c82f
+
+
+
+export const getArticleId = async (id) =>{
+  const res = await axios.get(
+    `https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=${id}&api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`
+  );
+  const articles = res.data.response.docs;
+    return articles
+  
+
+
+  // function articleById(id) {
+  
+  //   return articles.find((message) => message.id === id)
+  // }
+
+  // return articleById
+}
+
+export const getArticleDetails = async () =>{
+  const res = await axios.get(
+    `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${process.env.REACT_APP_NYTIMES_API_KEY}`
+  );
+  const articles = res.data.response.docs;
+    return articles
+  
+
+}

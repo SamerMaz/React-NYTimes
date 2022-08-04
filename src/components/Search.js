@@ -1,15 +1,13 @@
 import {
-  AppBar,
-  colors,
-  IconButton,
+  AppBar, IconButton,
   InputAdornment,
   makeStyles,
   TextField,
-  Toolbar,
+  Toolbar
 } from "@material-ui/core";
-import React, { useState } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 const useStyles = makeStyles({
   color: {

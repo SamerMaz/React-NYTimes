@@ -5,22 +5,24 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 import useStyles from "./styles";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getArticleDetails, getArticles } from "../../../services/service";
 
-const Article = ({ article }) => {
+const Article = ({ article, articleId }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       {article && (
-        <Card className={classes.card} id={article._id}>
+        <Card className={classes.card} id={article}>
           <CardMedia
             className={classes.media}
             component="img"
             src={
-              article.multimedia?.[0]?.url
+              article.multimedia[0]?.url
                 ? `https://nytimes.com/${article.multimedia[0].url}` //we are checking if there is no image, in that case we will display the NYT logo
                 : "https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg"
             }
@@ -28,16 +30,16 @@ const Article = ({ article }) => {
           />
           <CardContent>
             <Typography color="primary" variant="h6">
-              {/* <Link ></Link> */}
               <Link
-                // href={article.web_url}
-                to= "/article.id"
-                
+                to={`/details`}
+                state={{article: articleId}}
+                key={`${articleId}`}
                 rel="noreferrer"
                 style={{ textDecoration: "none" }}
               >
-                {article.headline.main}
+                  {article.headline.main}
               </Link>
+    
             </Typography>
             <Typography color="textSecondary" variant="subtitle2">
               {article.byline.original}
