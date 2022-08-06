@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { articleID, getArticleById, getArticleDetails, getArticleId, getArticles } from "../../services/service";
-import ShareButton from "../ShareButton";
+// import ShareButton from "../ShareButton";
 import Article from "./Article/Article";
 import Articles from "./Articles";
 
