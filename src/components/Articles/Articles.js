@@ -74,7 +74,7 @@ const Articles = () => {
           {data.pages.map((page) => (
             page.map((article) => (
               <Grid item xs={12} sm={4} key={article._id}>
-                <Article article={article} articleId={article}/>
+                <Article article={article} articleId={article} articleTitle={article}/>
               </Grid>
             ))))}
           </Grid>

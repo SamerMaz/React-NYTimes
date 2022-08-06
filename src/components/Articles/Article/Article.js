@@ -11,9 +11,14 @@ import PropTypes from "prop-types";
 import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getArticleDetails, getArticles } from "../../../services/service";
+import { removeSpaces } from "../../../helpers/decodeurl";
 
-const Article = ({ article, articleId }) => {
+const Article = ({ article, articleId, articleTitle }) => {
   const classes = useStyles();
+//  const articleTitle = useParams()
+
+
+
   return (
     <div className={classes.root}>
       {article && (
@@ -31,7 +36,7 @@ const Article = ({ article, articleId }) => {
           <CardContent>
             <Typography color="primary" variant="h6">
               <Link
-                to={`/details`}
+                to={`/details/${removeSpaces(articleTitle.headline.main)}`}
                 state={{article: articleId}}
                 key={`${articleId}`}
                 rel="noreferrer"

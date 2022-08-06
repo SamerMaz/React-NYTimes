@@ -22,7 +22,7 @@ ReactDOM.render(
       <Route path="/" element={<App />} />
       {/* <Route path="/article/:articleId" element={<Article/>} /> */}
       {/* <Route path="/details/:articleId"  element={<Details/>}/> */}
-      <Route path="/details"  element={<Details/>}/>
+      <Route path="/details/:articleTitle"  element={<Details/>}/>
 
       {/* <Route path="/details"  element={<Details/>}/> */}
 
