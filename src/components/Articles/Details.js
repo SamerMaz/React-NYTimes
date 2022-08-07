@@ -41,7 +41,8 @@ const Details = ({props}) => {
 
 
 
- const ahref = window.location.href
+ const ahref = location.pathname
+ console.log(ahref)
     const encodedAhref = encodeURIComponent(ahref)
 
  console.log(location)
