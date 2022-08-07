@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { articleID, getArticleById, getArticleDetails, getArticleId, getArticles } from "../../services/service";
-// import ShareButton from "../ShareButton";
+import ShareButton from "../ShareButton";
 import Article from "./Article/Article";
 import Articles from "./Articles";
 
@@ -66,6 +66,9 @@ console.log(article)
   <Typography variant="h4">{article.headline.main}</Typography>
   <Typography variant="body1">{article.abstract}</Typography>
 
+
+  <Typography variant="subtitle2">{article.byline.original}</Typography>
+
   <Typography variant='caption'>For more info:</Typography>
   <Typography variant='subtitle2'>
     <a href={article.web_url} target='_blank' rel="noreferrer" >
@@ -73,7 +76,7 @@ console.log(article)
     </a>
   </Typography>
 
-{/* <ShareButton/> */}
+<ShareButton/>
       
 
 
