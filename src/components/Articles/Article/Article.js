@@ -36,7 +36,8 @@ const Article = ({ article, articleId, articleTitle }) => {
           <CardContent>
             <Typography color="primary" variant="h6">
               <Link
-                to={`/details/${removeSpaces(articleTitle.headline.main)}`}
+                // to={`/details/${removeSpaces(articleTitle.headline.main)}`}
+                to={`/details/${articleTitle.headline.main}`}
                 state={{article: articleId}}
                 key={`${articleId}`}
                 rel="noreferrer"
