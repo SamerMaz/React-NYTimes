@@ -40,14 +40,14 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function ShareButton() {
+export default function ShareButton({ahref, encodedAhref}) {
   const classes = useStyles()
 
   const handleShare = e => {
     e.preventDefault()
 
-    const ahref = window.location.href
-    const encodedAhref = encodeURIComponent(ahref)
+    // const ahref = window.location.href
+    // const encodedAhref = encodeURIComponent(ahref)
     var link
 
     switch (e.currentTarget.id) {

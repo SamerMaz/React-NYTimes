@@ -39,6 +39,11 @@ const Details = ({props}) => {
   const classes = useStyles();
  const location = useLocation()
 
+
+
+ const ahref = window.location.href
+    const encodedAhref = encodeURIComponent(ahref)
+
  console.log(location)
 
 
@@ -76,7 +81,7 @@ console.log(article)
     </a>
   </Typography>
 
-<ShareButton/>
+<ShareButton  ahref={ahref} encodedAhref={encodedAhref}/>
       
 
 
