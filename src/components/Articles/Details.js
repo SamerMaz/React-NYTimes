@@ -53,7 +53,7 @@ const Details = ({ props }) => {
   //  const ahref = `${'https://nyorktimes.netlify.app' + location.pathname}`
   //  console.log(ahref)
 
-
+console.log(persistArticle)
     useEffect(()=>{
     setPersistArticle(persistArticle)
   }, [article])
@@ -70,8 +70,8 @@ const Details = ({ props }) => {
           <Box variant="outlined" id={persistArticle}>
             <img
               src={
-                persistArticle.multimedia[2]?.url
-                  ? `https://nytimes.com/${persistArticle.multimedia[2].url}`
+                persistArticle?.multimedia[2]?.url
+                  ? `https://nytimes.com/${persistArticle?.multimedia[2].url}`
                   : "https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg"
               }
               alt="img"
