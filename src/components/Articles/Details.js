@@ -70,7 +70,7 @@ const Details = ({ props }) => {
           <Box variant="outlined" id={persistArticle}>
             <img
               src={
-                persistArticle.multimedia[6]?.url
+                persistArticle.multimedia[2]?.url
                   ? `https://nytimes.com/${persistArticle.multimedia[2].url}`
                   : "https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg"
               }
