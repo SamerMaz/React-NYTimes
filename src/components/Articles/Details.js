@@ -47,7 +47,7 @@ const Details = ({ props }) => {
 
   const {article} = location.state || {};
 
-
+// console.log("first", article)
 
   const [persistArticle, setPersistArticle] = useLocalStorage('article', article)
   //  const ahref = `${'https://nyorktimes.netlify.app' + location.pathname}`
@@ -55,8 +55,9 @@ const Details = ({ props }) => {
 
 console.log(persistArticle)
     useEffect(()=>{
-    setPersistArticle(persistArticle)
-  }, [article])
+    setPersistArticle(article)
+    // if ( article !== null ){ setPersistArticle(persistArticle)}
+  }, [persistArticle])
 
 
   const ahref = window.location;
