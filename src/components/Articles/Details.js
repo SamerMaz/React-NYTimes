@@ -45,7 +45,7 @@ const Details = ({ props }) => {
   const classes = useStyles();
   const location = useLocation();
 
-  const article = location.state;
+  const {article} = location.state || {};
 
 
 
