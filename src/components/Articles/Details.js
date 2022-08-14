@@ -45,23 +45,26 @@ const Details = ({ props }) => {
   const classes = useStyles();
   const location = useLocation();
 
-  const {article} = location.state || {};
+  const {article} = location.state || {}
 
-// console.log("first", article)
+console.log("article from location state", article)
+const ahref = window.location;
+const encodedAhref = encodeURIComponent(ahref);
 
   const [persistArticle, setPersistArticle] = useLocalStorage('article', article)
   //  const ahref = `${'https://nyorktimes.netlify.app' + location.pathname}`
   //  console.log(ahref)
 
-console.log(persistArticle)
+console.log("PersistedArticle",persistArticle)
     useEffect(()=>{
+      if(article)
     setPersistArticle(article)
+    console.log("in useEffect",persistArticle)
     // if ( article !== null ){ setPersistArticle(persistArticle)}
-  }, [persistArticle])
+  }, [article, ahref])
 
 
-  const ahref = window.location;
-  const encodedAhref = encodeURIComponent(ahref);
+
 
 
   return (
