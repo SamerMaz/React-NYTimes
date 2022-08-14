@@ -58,10 +58,10 @@ const encodedAhref = encodeURIComponent(ahref);
 console.log("PersistedArticle",persistArticle)
     useEffect(()=>{
       if(article)
-    setPersistArticle(article)
-    console.log("in useEffect",persistArticle)
+        setPersistArticle(article)
+        console.log("in useEffect",persistArticle)
     // if ( article !== null ){ setPersistArticle(persistArticle)}
-  }, [article, ahref])
+  }, [article, ahref, persistArticle, setPersistArticle])
 
 
 
